@@ -1,0 +1,156 @@
+{
+  "info": {
+    "name": "Inventory API Collection",
+    "description": "Postman Collection cho module Inventory",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Tạo Product & Inventory (POST /api/v1/products)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Sản phẩm test kho cuối cùng\",\n  \"price\": 100000,\n  \"description\": \"Mô tả SP\",\n  \"categoryId\": \"666be5f309d4351b8c2579b7\",\n  \"stock\": 10\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "products"]
+        }
+      }
+    },
+    {
+      "name": "Lấy toàn bộ Inventory (GET /api/v1/inventories)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories"]
+        }
+      }
+    },
+    {
+      "name": "Lấy Inventory theo ID (GET /api/v1/inventories/:id)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "thay_id_cua_inventory_vao_day"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Thêm hàng vào kho (POST /add_stock)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"thay_id_cua_product_vao_day\",\n  \"quantity\": 50\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories/add_stock",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories", "add_stock"]
+        }
+      }
+    },
+    {
+      "name": "Xuất hàng khỏi kho (POST /remove_stock)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"thay_id_cua_product_vao_day\",\n  \"quantity\": 10\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories/remove_stock",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories", "remove_stock"]
+        }
+      }
+    },
+    {
+      "name": "Đặt trước hàng (POST /reservation)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"thay_id_cua_product_vao_day\",\n  \"quantity\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories/reservation",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories", "reservation"]
+        }
+      }
+    },
+    {
+      "name": "Chốt đơn hàng (POST /sold)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product\": \"thay_id_cua_product_vao_day\",\n  \"quantity\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/inventories/sold",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "inventories", "sold"]
+        }
+      }
+    }
+  ]
+}
